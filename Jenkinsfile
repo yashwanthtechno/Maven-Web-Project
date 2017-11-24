@@ -45,7 +45,9 @@ pipeline {
 				echo 'Deploymnet Stage ends...'
             }
         }
-post {
+    
+    }
+	post {
     success {
       
       emailext (
@@ -64,6 +66,5 @@ failure {
           recipientProviders: [[$class: 'DevelopersRecipientProvider']]
         )
     }
-}	    
-    }
+}	
 }	
