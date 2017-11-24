@@ -45,7 +45,9 @@ pipeline {
 				echo 'Deploymnet Stage ends...'
             }
         }
-	    notifications {
+	    
+    }
+	notifications {
    success {
      mail to:"devopstrainingblr@gmail.com",
 	 subject:"Build Success",
@@ -58,5 +60,4 @@ pipeline {
 	 body:"Fix the build"
    }
 }
-    }
 }
