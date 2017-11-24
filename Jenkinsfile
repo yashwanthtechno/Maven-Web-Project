@@ -29,6 +29,15 @@ pipeline {
 				}
             }
         }
+	 stage('Deploy Stage') {
+            steps {
+                echo 'Install Stage starts...'
+				withMaven(maven : 'maven_3_5_2'){
+				 sh 'mvn deploy'
+				echo 'Deploy Stage ends...'
+				}
+            }
+        }   
         stage('SonarQube Scanner Stage') {
             steps {
                 echo 'Deploymnet Stage starts...'
