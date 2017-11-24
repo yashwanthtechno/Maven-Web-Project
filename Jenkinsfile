@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Deploymnet Stage starts...'
 		    withMaven(maven : 'maven_3_5_2'){
-				 sh 'mvn deploy'
+				 sh 'mvn install'
 				echo 'Deploymnet Stage ends...'
 		    }
             }
