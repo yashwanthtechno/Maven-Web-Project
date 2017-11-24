@@ -45,7 +45,4 @@ pipeline {
 				echo 'Deploymnet Stage ends...'
             }
         }
-	    
     }
-}
-}
