@@ -47,9 +47,7 @@ pipeline {
         }
 	    
     }
-	
-}
-post {
+	post {
     success {
       
       emailext (
@@ -69,4 +67,6 @@ failure {
         )
     }
 }	
+}
+
 }
