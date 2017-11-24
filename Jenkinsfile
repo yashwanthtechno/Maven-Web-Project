@@ -28,9 +28,9 @@ pipeline {
         }
         stage('SonarQube Scanner Stage') {
             steps {
-                echo 'Deploymnet Stage starts...'
-				sh 'mvn sonar:sonar'
-				echo 'Deploymnet Stage ends...'
+                echo 'SonarQube Scanner Stage starts...'
+		sh 'mvn sonar:sonar'
+		echo 'SonarQube Scanner Stage ends...'
             }
         }
     }
