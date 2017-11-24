@@ -45,5 +45,18 @@ pipeline {
 				echo 'Deploymnet Stage ends...'
             }
         }
+	    notifications {
+   success {
+     mail to:"devopstrainingblr@gmail.com",
+	 subject:"Build Success",
+	 body:"Build got succeeed"
+   }
+   
+   failure {
+     mail to:"devopstrainingblr@gmail.com",
+	 subject:"Build Failed",
+	 body:"Fix the build"
+   }
+}
     }
 }
