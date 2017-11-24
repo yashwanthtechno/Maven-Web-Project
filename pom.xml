@@ -70,6 +70,22 @@
 		</dependency>
 
 	</dependencies>
+	
+	<repositories>
+        <repository>
+            <id>myMavenRepo.read</id>
+            <url>https://mymavenrepo.com/repo/Kc9khPUGgDzV9gruoyls/</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepo.write</id>
+            <url>https://mymavenrepo.com/repo/xtzDXsryp1OKYd3hZ4iE/</url>
+        </repository>
+    </distributionManagement>
+
+	
 	<build>
 		<plugins>
 			<plugin>
