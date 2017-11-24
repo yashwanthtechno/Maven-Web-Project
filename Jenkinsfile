@@ -22,10 +22,10 @@ pipeline {
         }
         stage('Install Stage') {
             steps {
-                echo 'Deploymnet Stage starts...'
+                echo 'Install Stage starts...'
 				withMaven(maven : 'maven_3_5_2'){
-				 sh 'mvn deploy'
-				echo 'Deploymnet Stage ends...'
+				 sh 'mvn install'
+				echo 'Install Stage ends...'
 				}
             }
         }
