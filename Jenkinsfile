@@ -31,7 +31,7 @@ pipeline {
         }
 	 stage('Deploy Stage') {
             steps {
-                echo 'Install Stage starts...'
+                echo 'Deploy Stage starts...'
 				withMaven(maven : 'maven_3_5_2'){
 				 sh 'mvn deploy'
 				echo 'Deploy Stage ends...'
@@ -40,9 +40,9 @@ pipeline {
         }   
         stage('SonarQube Scanner Stage') {
             steps {
-                echo 'Deploymnet Stage starts...'
+                echo 'SonarQube Scanner Stage starts...'
 				 sh 'mvn sonar:sonar'
-				echo 'Deploymnet Stage ends...'
+				echo 'SonarQube Scanner Stage ends...'
             }
         }
     
