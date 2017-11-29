@@ -95,23 +95,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	
-	<profiles>
-		
-		<profile>
-			<id>sonar</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<sonar.host.url>http://localhost:9001/</sonar.host.url>
-			</properties>
-		</profile>
-	</profiles>
-	
-	<plugins>
- <plugin>
+	<plugin>
   <groupId>org.jacoco</groupId>
   <artifactId>jacoco-maven-plugin</artifactId>
   <version>0.5.5.201112152213</version>
@@ -143,5 +127,19 @@
    <target>1.5</target>
   </configuration>
  </plugin>
-</plugins>
+	
+	<profiles>
+		
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.host.url>http://localhost:9001/</sonar.host.url>
+			</properties>
+		</profile>
+	</profiles>
+	
+	
 </project>
