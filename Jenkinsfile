@@ -12,7 +12,7 @@ node {
 
        stage('Compiling'){
 
-          sh 'mvn clean jacoco:prepare-agent install jacoco:report'
+          sh 'mvn clean install'
        }
 	   
       stage('Sonar') {
