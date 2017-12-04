@@ -39,8 +39,8 @@
     </scm>
 	
     <issueManagement>
-        <system>AA GitHub Enterprise (GHE)</system>
-        <url>https://ghe.aa.com/00850230/aa-ct-fly-catalog-service/issues</url>
+        <system>GitHub</system>
+        <url>https://github.com/devopstrainingblr/Maven-Web-Project/issues</url>
     </issueManagement>
 	
 	
