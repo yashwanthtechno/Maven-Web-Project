@@ -1,36 +1,51 @@
-pipeline {
-    agent any
+#!groovy
 
-    stages {
-        stage('Compile Stage') {
-            steps {
-                echo 'Comple Stage starts...'
-				withMaven(maven : 'maven_3_5_2'){
-				 sh 'mvn clean compile'
-				echo 'Comple Stage ends...'
-				}
-            }
-        }
-        stage('Testing Stage') {
-            steps {
-                echo 'Testing Stage starts...'
-				withMaven(maven : 'maven_3_5_2'){
-				 sh 'mvn test'
-				echo 'Testing Stage ends...'
-				}
-            }
-        }
-        stage('Install Stage') {
-            steps {
-                echo 'Install Stage starts...'
-				withMaven(maven : 'maven_3_5_2'){
-				 sh 'mvn install'
-				echo 'Install Stage ends...'
-				}
-            }
-        }
+node {
+    currentBuild.result = "SUCCESS"
+
+    try {
 	
-        
+	    withEnv([
+            'devopsName='Jenkins DevOps',
+            'emailTo=devopstrainingblr@gmail.com',
+            'emailFrom=devopstrainingblr@gmail.com'
+    ]) 
+       stage('Checkout'){
+
+          checkout scm
+       }
+
+       stage('Compiling'){
+
+          sh 'mvn deploy'
+       }
+	   
+      stage('Sonar') {
+                    //add stage sonar
+                    sh 'mvn sonar:sonar'
+                }
+       stage('mail'){
+
+         def subject = "${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+    def summary = "${subject} (<${env.BUILD_URL}|Open>)"
+    def details = """<p>${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Error: ${errorMessage}</p>
+        <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+    emailext recipientProviders: [[$class: 'DevelopersRecipientProvider']], subject: subject, body: details
+       }
+
+    }
+    catch (err) {
+
+        currentBuild.result = "FAILURE"
+
+           def subject = "${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+    def summary = "${subject} (<${env.BUILD_URL}|Open>)"
+    def details = """<p>${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Error: ${errorMessage}</p>
+        <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+    emailext recipientProviders: [[$class: 'DevelopersRecipientProvider']], subject: subject, body: details
+
+        throw err
     }
 }
-
