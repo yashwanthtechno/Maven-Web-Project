@@ -3,9 +3,9 @@
 node {
     currentBuild.result = "SUCCESS"
  withEnv([
-            devopsName='Jenkins DevOps',
-            emailTo='devopstrainingblr@gmail.com',
-            emailFrom='devopstrainingblr@gmail.com'
+            'devopsName=Jenkins DevOps',
+            'emailTo=devopstrainingblr@gmail.com',
+            'emailFrom=devopstrainingblr@gmail.com'
 	    ])
     try {
 	
