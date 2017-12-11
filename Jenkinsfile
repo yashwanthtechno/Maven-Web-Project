@@ -2,14 +2,13 @@
 
 node {
     currentBuild.result = "SUCCESS"
-
-    try {
-	
-	    withEnv([
+ withEnv([
             'devopsName='Jenkins DevOps',
             'emailTo=devopstrainingblr@gmail.com',
             'emailFrom=devopstrainingblr@gmail.com'
-    ]) 
+	    ])
+    try {
+	
        stage('Checkout'){
 
           checkout scm
