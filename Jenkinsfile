@@ -5,13 +5,7 @@ node {
 
     try {
 	
-	    stage('envset'){
-	     withEnv([
-            "devopsName='Jenkins DevOps'",
-            'emailTo=devopstrainingblr@gmail.com',
-            'emailFrom=devopstrainingblr@gmail.com'
-	    ])
-	    }
+	   
        stage('Checkout'){
 
           checkout scm
