@@ -1,9 +1,8 @@
 #!groovy
 
 node {
-  
 	   
-       stage('Checkout'){
+	stage('Checkout'){
 
           checkout scm
        }
