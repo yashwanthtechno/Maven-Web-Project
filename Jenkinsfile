@@ -7,7 +7,7 @@ node {
           checkout scm
        }
 
-       stage('Compiling'){
+       stage('BuildArtifact'){
 
           sh 'mvn install'
        }
