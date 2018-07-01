@@ -8,7 +8,7 @@
   <packaging>war</packaging>
   <version>1.0</version>
   <name>Maven Web Project 22nd April</name>
-  <description>Maven Web Project for Java</description>
+  <description>Maven Web Project for Java Project</description>
 
  <organization>
      <name>Mithun Technologies</name>
